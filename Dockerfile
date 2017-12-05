@@ -22,6 +22,16 @@ RUN apt-get update && apt-get install apt-transport-https && echo "deb https://a
 
 RUN apt-get update && apt-get install elasticsearch
 
+RUN apt-get update && apt-get install -y composer
+
 WORKDIR /var/www/html
 EXPOSE 80
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+
+ENV WIKI_NAME="BlueSpice MediaWiki"
+ENV WIKI_ADMIN="WikiSysop"
+
+COPY scripts/* /usr/sbin/
+
+VOLUME /var/www/html/
+
+ENTRYPOINT /usr/sbin/entry.sh
