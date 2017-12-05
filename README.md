@@ -3,7 +3,6 @@ A simple set of dockers for running a local Drupal or WordPress LAMP
 - Apache 2.4
 - PHP 7.0
 - MariaDB 10.1
-- phpMyAdmin
 
 ## Start BlueSpice Development from scratch
 
