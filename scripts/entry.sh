@@ -24,4 +24,6 @@ fi
 
 php ${DEST_PATH}/maintenance/update.php --quick
 
+chown www-data:www-data -R ${DEST_PATH}/cache ${DEST_PATH}/images ${DEST_PATH}/extensions/BlueSpiceFoundation/config ${DEST_PATH}/extensions/BlueSpiceFoundation/data
+
 /usr/sbin/apache2ctl -D FOREGROUND
