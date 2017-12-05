@@ -1,11 +1,27 @@
-FROM php:7.0-apache
+FROM debian:stretch
 
-RUN a2enmod rewrite
+RUN apt-get update && apt-get -y install apache2
 
-# install the PHP extensions we need
-RUN apt-get update && apt-get install -y libpng12-dev libjpeg-dev libpq-dev \
-  && rm -rf /var/lib/apt/lists/* \
-  && docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
-  && docker-php-ext-install gd mbstring pdo pdo_mysql pdo_pgsql zip
+RUN apt-get update && apt-get -y install php7.0 php7.0-mysql php7.0-mbstring php7.0-json php7.0-curl php7.0-xml php7.0-gd php7.0-tidy php7.0-intl php7.0-ldap curl apache2-mod-php7.0
+
+RUN apt-get update && apt-get -y install tomcat8
+
+RUN apt-get update && apt-get -y install unzip rsync zip
+
+RUN apt-get update && apt-get -y install git-core
+
+RUN apt-get update && apt-get -y install cron inotify-tools
+
+RUN apt-get update && apt-get install -y python memcached
+
+RUN apt-get update && apt-get install -y gnupg2 && curl -sL https://deb.nodesource.com/setup_6.x | bash - && apt-get install -y nodejs
+
+RUN apt-get update && apt-get install wget && wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add -
+
+RUN apt-get update && apt-get install apt-transport-https && echo "deb https://artifacts.elastic.co/packages/5.x/apt stable main" | tee -a /etc/apt/sources.list.d/elastic-5.x.list
+
+RUN apt-get update && apt-get install elasticsearch
 
 WORKDIR /var/www/html
+EXPOSE 80
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]

@@ -5,7 +5,7 @@ httpd:
   ports:
     - 8180:80
   volumes:
-    - ~/public_html:/var/www/html
+    - ~/workspace/github/hallowelt/mediawiki:/var/www/html
 maria_db:
   container_name: mariadb
   image: mariadb
