@@ -5,6 +5,14 @@ A simple set of dockers for running a local Drupal or WordPress LAMP
 - MariaDB 10.1
 - phpMyAdmin
 
+## Start BlueSpice Development from scratch
+
+`git clone https://github.com/hallowelt/mediawiki-docker-dev.git`
+`cd mediawiki-docker-dev && mkdir mediawiki`
+`docker-composer build && docker-composer up`
+
+Go to: http://localhost:8180/bluespice to access your wiki, the WikiSysop password is in the WikiSysop_password.txt file of your mounted webdirectory in ./mediawiki/bluespice/.
+
 ## General Usage Information
 
 By default this mounts the /var/www/html directory to ~/public_html on your Linux OS.  From here you can install drupal using Drush or use any website files. It is intended to keep all of the web application files outside of the containers so you can easily work on the files. The database should go in the mariadb container included with this.
