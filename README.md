@@ -8,9 +8,9 @@ A simple set of dockers for running a local Drupal or WordPress LAMP
 
 `git clone https://github.com/hallowelt/mediawiki-docker-dev.git`
 
-`cd mediawiki-docker-dev && mkdir mediawiki`
+`cd mediawiki-docker-dev`
 
-`docker-compose build && docker-compose up`
+`docker-compose up`
 
 Go to: http://localhost:8180/bluespice to access your wiki, the WikiSysop password is in the WikiSysop_password.txt file of your mounted webdirectory in ./mediawiki/bluespice/.
 
