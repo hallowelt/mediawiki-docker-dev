@@ -14,6 +14,4 @@ maria_db:
   environment:
     MYSQL_ROOT_PASSWORD: docker
   ports:
-    - 3306:3306
-  expose:
-    - "3306"
+    - 3306
