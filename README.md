@@ -1,5 +1,5 @@
 # docker-compose-lamp
-A simple set of dockers for running a local Drupal or WordPress LAMP
+A simple set of dockers for running a local BlueSpice MediaWiki LAMP
 - Apache 2.4
 - PHP 7.0
 - MariaDB 10.1
@@ -11,6 +11,8 @@ A simple set of dockers for running a local Drupal or WordPress LAMP
 `cd mediawiki-docker-dev`
 
 `docker-compose up`
+
+The codebase can be found in subdirectory "mediawiki" and will be created on first boot. 
 
 Go to: http://localhost:8180/bluespice to access your wiki, the WikiSysop password is in the WikiSysop_password.txt file of your mounted webdirectory in ./mediawiki/bluespice/.
 
