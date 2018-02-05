@@ -34,4 +34,7 @@ COPY scripts/* /usr/sbin/
 
 VOLUME /var/www/html/
 
+RUN sed -i 's/\r$//' /usr/sbin/entry.sh  && \
+        chmod +x /usr/sbin/entry.sh
+
 ENTRYPOINT /usr/sbin/entry.sh
